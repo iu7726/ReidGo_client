@@ -1,0 +1,19 @@
+version: '3'
+services:
+  server:
+    image: nginx:latest
+    container_name: reid-server
+    ports:
+      - "80:80"
+    volumes:
+      - ./volumes/app/public:/apps
+      - ./webserver/default.conf:/etc/nginx/conf.d/client.conf
+    depends_on:
+      - client
+  client:
+    build: './volumes/app'
+    container_name: reid-client
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
