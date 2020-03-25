@@ -7,7 +7,7 @@ services:
       - "80:80"
     volumes:
       - ./volumes/app/public:/apps
-      - ./webserver/default.conf:/etc/nginx/conf.d/client.conf
+      - ./webserver/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - client
   client:
